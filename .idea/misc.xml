@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/parent/pom.xml" />
         <option value="$PROJECT_DIR$/reactive/pom.xml" />
+        <option value="$PROJECT_DIR$/persist/pom.xml" />
       </list>
     </option>
   </component>

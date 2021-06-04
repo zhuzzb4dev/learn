@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="reactive" />
+        <module name="persist" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="parent" options="-parameters" />
+      <module name="persist" options="-parameters" />
       <module name="reactive" options="-parameters" />
     </option>
   </component>
