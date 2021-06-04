@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mo.persist.dao.UserGoalDao">
+
+    <resultMap id="BaseResultMap" type="com.mo.persist.entity.UserGoal">
+        <!--@Table user_goal-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="goalId" column="goal_id" jdbcType="INTEGER"/>
+        <result property="reachTime" column="reach_time" jdbcType="TIMESTAMP"/>
+        <result property="reachDay" column="reach_day" jdbcType="VARCHAR"/>
+        <result property="reachMonth" column="reach_month" jdbcType="VARCHAR"/>
+        <result property="reachYear" column="reach_year" jdbcType="VARCHAR"/>
+        <result property="reachDate" column="reach_date" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          id, user_id, goal_id, reach_time, reach_day, reach_month, reach_year, reach_date
+        from myproject.user_goal
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, user_id, goal_id, reach_time, reach_day, reach_month, reach_year, reach_date
+        from myproject.user_goal
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          id, user_id, goal_id, reach_time, reach_day, reach_month, reach_year, reach_date
+        from myproject.user_goal
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="goalId != null">
+                and goal_id = #{goalId}
+            </if>
+            <if test="reachTime != null">
+                and reach_time = #{reachTime}
+            </if>
+            <if test="reachDay != null and reachDay != ''">
+                and reach_day = #{reachDay}
+            </if>
+            <if test="reachMonth != null and reachMonth != ''">
+                and reach_month = #{reachMonth}
+            </if>
+            <if test="reachYear != null and reachYear != ''">
+                and reach_year = #{reachYear}
+            </if>
+            <if test="reachDate != null and reachDate != ''">
+                and reach_date = #{reachDate}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into myproject.user_goal(user_id, goal_id, reach_time, reach_day, reach_month, reach_year, reach_date)
+        values (#{userId}, #{goalId}, #{reachTime}, #{reachDay}, #{reachMonth}, #{reachYear}, #{reachDate})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update myproject.user_goal
+        <set>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="goalId != null">
+                goal_id = #{goalId},
+            </if>
+            <if test="reachTime != null">
+                reach_time = #{reachTime},
+            </if>
+            <if test="reachDay != null and reachDay != ''">
+                reach_day = #{reachDay},
+            </if>
+            <if test="reachMonth != null and reachMonth != ''">
+                reach_month = #{reachMonth},
+            </if>
+            <if test="reachYear != null and reachYear != ''">
+                reach_year = #{reachYear},
+            </if>
+            <if test="reachDate != null and reachDate != ''">
+                reach_date = #{reachDate},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from myproject.user_goal where id = #{id}
+    </delete>
+
+</mapper>

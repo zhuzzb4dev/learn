@@ -1,0 +1,33 @@
+server:
+  port: 8080
+#  ssl:
+#    key-store: /Users/zhuzhibin/Desktop/zzb.pfx
+#    key-store-password: root123
+#    key-store-type: PKCS12
+spring:
+  datasource:
+    url: jdbc:mariadb://127.0.0.1:3306/myproject?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: root
+#  r2dbc:
+#    url: r2dbc:mariadb://127.0.0.1:3306/myproject
+#    username: root
+#    password: root
+  redis:
+    host: 127.0.0.1
+    port: 6379
+#logging:
+#  level:
+#    root: debug
+mybatis:
+  mapper-locations: classpath:mapper/*Dao.xml
+#    enabled: true
+
+
+# Redisson settings
+#path to config - redisson.yaml
+redisson:
+#  file: classpath:redisson.yaml
+  config:
+    codec: org.redisson.codec.JsonJacksonCodec
