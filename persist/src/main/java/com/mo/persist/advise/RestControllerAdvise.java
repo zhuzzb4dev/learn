@@ -1,4 +1,4 @@
-package com.mo.persist.adviser;
+package com.mo.persist.advise;
 
 import com.mo.persist.exception.BizException;
 import com.mo.persist.model.CommonResponse;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class RestControllerAdviser {
+public class RestControllerAdvise {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.OK)
