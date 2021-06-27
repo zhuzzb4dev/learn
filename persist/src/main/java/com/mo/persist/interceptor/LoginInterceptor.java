@@ -1,4 +1,4 @@
-package com.mo.persist.config;
+package com.mo.persist.interceptor;
 
 import cn.hutool.core.util.StrUtil;
 import com.mo.persist.entity.User;

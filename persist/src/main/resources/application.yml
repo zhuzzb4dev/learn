@@ -1,5 +1,10 @@
+
+
 server:
   port: 8080
+#  tomcat:
+#    threads:
+#      max: 2
 #  ssl:
 #    key-store: /Users/zhuzhibin/Desktop/zzb.pfx
 #    key-store-password: root123
